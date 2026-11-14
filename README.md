@@ -1,7 +1,27 @@
-# Stock-Market-Analysis
-My team is developing a stock market prediction app using Tkinter in Python utilizing TensorFlow and Scikit-learn to implement neural networks and linear regression models. The goal of this project is to achieve accurate stock market predictions through comprehensive data analysis and model optimization techniques.
+# Stock market analysis
 
-### _analysis.ipynb_
-The jupyter file above provides the base code we will be using for the project. Our team aims to incrementally improve the model.
+Forecasts Microsoft (MSFT) closing prices from the previous three trading days with an LSTM.
 
-Another task at hand for this project is to build an app in Python using Tkinter to make the use of the stock prediction more user-friendly. The code for the app will be posted and updated on GitHub.
+## What it does
+
+- Builds date-ordered windows with `df_to_windowed_df` and `n=3`.
+- Trains a Keras `LSTM(64)` on mean squared error, with a held-out validation slice and a later test slice.
+- Fits for 100 epochs, then continues into chained multi-day forecasts.
+- The Yahoo Finance export is not committed. Save it as `data/MSFT (1).csv`, or leave it next to the notebook if you run this in Colab.
+
+## Layout
+
+- `notebooks/analysis.ipynb` — the windowing, the LSTM, and the forecasts
+
+## Run
+
+From the repository root, after the CSV is in place:
+
+```bash
+pip install -r requirements.txt
+jupyter notebook notebooks/analysis.ipynb
+```
+
+## Stack
+
+Python, pandas, NumPy, TensorFlow, Matplotlib, Jupyter. Team project with Santiago.
